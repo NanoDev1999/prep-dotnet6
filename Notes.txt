@@ -1,0 +1,150 @@
+Notes on the LinkedIn's First Look at .NET 6
+
+CLR - Common Language Runtime
+
+.NET 6 tosses out long term support for 5, instead .NET will have updated releases yearly.
+
+Tossed out core tossed out framework and is now just .NET.
+
+Even releases get long term support.
+Odd numbered releases are cutting edge.
+
+New/Updates tools with Blazor and MAUI.
+
+Full cross platform with MAUI/Xamarin.
+
+Runtimes: Core CLR and Mono CLR
+
+Core is focused on native windows applications
+Mono allows you to build across many platforms and types
+
+Workloads are built in which allow you to have techstacks already ready to download. Workloads let you target a platform or whatever you're trying to achieve.
+
+BCL (Base Class Library) became the NuGet Package which allows you to get smaller bits of libraries that you need. More modularization.
+
+C# 10 comes with .NET 6, simplified namespace management
+global using declarations
+for example
+
+global using System.Threading.Tasks; 
+// allows you to use this single namespace all across many code files.
+
+
+
+File scoped namespace declarations, which allows you to not have those extra curly braces at the start.
+
+structs don't need parameters in the constructor 
+
+record structs, which are used in data services and anything handling data.
+
+There are some performance improvements with strings.
+
+Lambda have attributes now.
+
+Extended some property patterns.
+
+Assignments in deconstruction, saves a single line or two.
+
+
+
+
+
+Web Application Updates
+
+ASP and Blazor
+
+ASP gets hot reload.
+Improve SPA templates.
+Minimal APIs boilerplate and templates. Get hosts up.
+New Routing APIs
+
+Blazor integration with ASP.
+
+Minimal API with Routing
+// program.cs
+var builder = WebApplication.CreateBuilder(args);
+app.MapGet("/hello", () => "Hello World");
+app.Run();
+
+
+
+
+
+Blazor
+Framework alternative to JS, HTML, CSS
+Swapout JS for C# using Blazor.
+
+Use client on server.
+
+Access query string/component params.
+Render Blazor components from JS
+Stream between .NET and JS
+error boundaries to help target error messages.
+Blazor desktop Apps, using HTML/CSS
+
+
+
+Desktop Frameworks
+WPF 
+Win Forms -> WPF -> UWP
+WinUI newest model for all devices.
+.NET MAUI used to create cross apps
+WinUI 3 not typed to windows version, uses c++ rust or c# projections
+MSIX - Core 
+All platform targeting for WinUI.
+
+
+
+MAUI - Multiplatform App User Interface
+All platforms with a single interface
+Evolved from Xamarin
+
+Single Project with Multiple Outputs
+Hot Reload
+Better managing resources in a single place such as fonts, splashes, images, etc.
+More cross platform UI functionality.
+
+
+Blazor integration so you make a Blazor desktop application, then use .NET MAUI to run it on multiple platforms.
+
+
+
+
+.NET 6 Framework
+New Entity Framework Core 6.0
+Migration Bundles - Migration Code creates standalone exe from it with your migrations. Can be used in deployment pipelines like Azure.
+Preconvention Model Configuration - set it up in the builder, simplify it and not use it repeatedly.
+70% faster with EF Core
+EF Core (Entity Framework)
+Provider Improvements, SQL, Cosmos DB, SQL Lite - better interchange between them using EF.
+
+Basic Framework Updates
+Update to JSON, LINQ, OpenSSL3, Common Guards
+
+
+
+
+Preparation
+
+Prepare your team
+Web Development - ASP.NET Core / Blazor
+Mobile Development - .NET MAUI
+Cloud Development - Minimal APIs / Containers
+Desktop - WinUI / Blazor and MAUI
+
+Make a plan for .NET updates
+yearly - cutting edge
+2 years - stable
+
+Consider containers in your life cycles
+App deployment model
+Compact
+Consistent
+Host OS, Container engine (Docker), Base Image, App 1 / App 2 on that base image.
+Consistent Platforming Consistent Deployments
+Primary component in many microservice architectures
+
+
+devblogs.microsoft.com/ - updates and info
+github/dotnet - higher level platform
+
